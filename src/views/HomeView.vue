@@ -3,6 +3,6 @@
 
 <template>
   <main>
-    home view
+    home
   </main>
 </template>
