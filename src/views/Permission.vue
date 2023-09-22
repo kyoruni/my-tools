@@ -9,10 +9,6 @@ const owner = ref({ read: true, write: true, exec: true, num: 7, sym: "-" });
 const group = ref({ read: true, write: true, exec: true, num: 7, sym: "-" });
 const other = ref({ read: true, write: true, exec: true, num: 7, sym: "-" });
 
-const resultOwnerNum = computed(() => {
-  return "hoge";
-});
-
 const changeOwnerCheck = () => {
   const readNum = owner.value.read ? READ_NUM : DEFAULT_NUM;
   const writeNum = owner.value.write ? WRITE_NUM : DEFAULT_NUM;
