@@ -130,6 +130,22 @@ const copyButtonMouseLeave = (type: string) => {
     isSymHover.value = false;
   }
 };
+
+const clearButton = () => {
+  owner.value.read = owner.value.write = owner.value.exec = false;
+  group.value.read = group.value.write = group.value.exec = false;
+  other.value.read = other.value.write = other.value.exec = false;
+  owner.value.num = group.value.num = other.value.num = 0;
+  owner.value.sym = group.value.sym = other.value.sym = '-';
+};
+
+const allCheckButton = () => {
+  owner.value.read = owner.value.write = owner.value.exec = true;
+  group.value.read = group.value.write = group.value.exec = true;
+  other.value.read = other.value.write = other.value.exec = true;
+  owner.value.num = group.value.num = other.value.num = 7;
+  owner.value.sym = group.value.sym = other.value.sym = 'rwx';
+};
 </script>
 
 <template>
@@ -199,5 +215,9 @@ const copyButtonMouseLeave = (type: string) => {
         <span class="i-tabler-clipboard-copy w-5 h-5" :class="{ 'text-pink-200': isSymHover, 'text-blue-400': !isSymHover }"></span>
       </button>
     </div>
+  </div>
+  <div class="text-center mt-4">
+    <button class="btn btn-primary mr-4 w-28" @click="allCheckButton">全チェック</button>
+    <button class="btn btn-secondary w-28" @click="clearButton">クリア</button>
   </div>
 </template>
