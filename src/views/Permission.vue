@@ -16,9 +16,9 @@ const EXEC_SYM = 'x';
 const DEFAULT_NUM = 0;
 const DEFAULT_SYM = '-';
 
-const owner = ref({ read: true, write: true, exec: true, num: 7, sym: "rwx" });
-const group = ref({ read: true, write: true, exec: true, num: 7, sym: "rwx" });
-const other = ref({ read: true, write: true, exec: true, num: 7, sym: "rwx" });
+const owner = ref({ read: false, write: false, exec: false, num: 0, sym: "---" });
+const group = ref({ read: false, write: false, exec: false, num: 0, sym: "---" });
+const other = ref({ read: false, write: false, exec: false, num: 0, sym: "---" });
 const isNumHover = ref(false);
 const isSymHover = ref(false);
 
