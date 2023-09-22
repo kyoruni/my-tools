@@ -162,13 +162,13 @@ const allCheckButton = () => {
         <tr class="text-center">
           <td class="w-16 label-text text-left">所有者</td>
           <td class="w-20">
-            <input type="checkbox" v-model="owner.read" class="checkbox checkbox-error" @change="changeOwnerCheck"/>
+            <input type="checkbox" v-model="owner.read" class="checkbox checkbox-error" @change="changeOwnerCheck" />
           </td>
           <td class="w-20">
-            <input type="checkbox" v-model="owner.write" class="checkbox checkbox-error" @change="changeOwnerCheck"/>
+            <input type="checkbox" v-model="owner.write" class="checkbox checkbox-error" @change="changeOwnerCheck" />
           </td>
           <td class="w-20">
-            <input type="checkbox" v-model="owner.exec" class="checkbox checkbox-error" @change="changeOwnerCheck"/>
+            <input type="checkbox" v-model="owner.exec" class="checkbox checkbox-error" @change="changeOwnerCheck" />
           </td>
         </tr>
         <tr class="text-center">
