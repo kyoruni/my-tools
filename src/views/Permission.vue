@@ -61,4 +61,12 @@ const other = ref({ read: true, write: true, exec: true });
       </tr>
     </table>
   </div>
+  <div class="text-center mt-4">
+    <span class="label-text inline-block w-16">数値</span>
+    <input type="text" placeholder="数値" class="input input-bordered w-20 max-w-xs" />
+  </div>
+  <div class="text-center mt-4">
+    <span class="label-text inline-block w-16">記号</span>
+    <input type="text" placeholder="記号" class="input input-bordered w-20 max-w-xs" />
+  </div>
 </template>
