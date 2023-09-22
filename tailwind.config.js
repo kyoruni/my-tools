@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const { iconsPlugin, getIconCollections } = require("@egoist/tailwindcss-icons");
 module.exports = {
   content: [
     "./index.html",
@@ -11,7 +12,11 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    require("daisyui")
+    require("daisyui"),
+    iconsPlugin({
+      // https://icones.js.org/
+      collections: getIconCollections(["tabler"]),
+    }),
   ],
 }
 

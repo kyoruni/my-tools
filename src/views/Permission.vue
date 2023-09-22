@@ -119,6 +119,7 @@ const copyButton = (value: string) => {
         <td class="w-16"></td>
         <td class="w-20">
           <span class="label-text">読み込み</span>
+          <span className="i-tabler-brand-twitter-filled w-5 h-5"></span>
         </td>
         <td class="w-20">
           <span class="label-text">書き込み</span>
