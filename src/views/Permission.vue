@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import useClipboard from 'vue-clipboard3';
+import PageTitle from '@/components/PageTitle.vue';
 
 const { toClipboard } = useClipboard();
 
@@ -131,9 +132,7 @@ const copyButtonMouseLeave = (type: string) => {
 
 <template>
   <div class="permission">
-    <div class="prose mx-auto text-center mb-4">
-      <h2>パーミッションの数値と記号表記を作るやつ</h2>
-    </div>
+    <PageTitle :title="'パーミッションの数値と記号表記を作るやつ'"/>
     <div class="flex justify-center">
       <table>
         <tr class="text-center">
