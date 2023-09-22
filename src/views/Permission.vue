@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import useClipboard from 'vue-clipboard3';
+
+const { toClipboard } = useClipboard();
+
 const READ_NUM = 4;
 const READ_SYM = 'r';
 
@@ -98,6 +102,11 @@ const resultNum = computed(() => {
 const resultSym = computed(() => {
   return owner.value.sym + group.value.sym + other.value.sym;
 });
+
+const copyButton = (value: string) => {
+  toClipboard(value);
+  alert('クリップボードにコピーしました');
+};
 </script>
 
 <template>
@@ -159,9 +168,11 @@ const resultSym = computed(() => {
   <div class="text-center mt-4">
     <span class="label-text inline-block w-16">数値</span>
     <input type="text" v-model="resultNum" class="input input-bordered w-32 max-w-xs" />
+    <button @click="copyButton(resultNum)">コピー</button>
   </div>
   <div class="text-center mt-4">
     <span class="label-text inline-block w-16">記号</span>
     <input type="text" v-model="resultSym" class="input input-bordered w-32 max-w-xs" />
+    <button @click="copyButton(resultSym)">コピー</button>
   </div>
 </template>
