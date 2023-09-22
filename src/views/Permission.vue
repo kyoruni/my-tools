@@ -1,33 +1,94 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 const READ_NUM = 4;
-const WRITE_NUM = 2;
-const EXEC_NUM = 1;
-const DEFAULT_NUM = 0;
+const READ_SYM = 'r';
 
-const owner = ref({ read: true, write: true, exec: true, num: 0, sym: "---" });
-const group = ref({ read: true, write: true, exec: true, num: 0, sym: "---" });
-const other = ref({ read: true, write: true, exec: true, num: 0, sym: "---" });
+const WRITE_NUM = 2;
+const WRITE_SYM = 'w';
+
+const EXEC_NUM = 1;
+const EXEC_SYM = 'x';
+
+const DEFAULT_NUM = 0;
+const DEFAULT_SYM = '-';
+
+const owner = ref({ read: true, write: true, exec: true, num: 7, sym: "rwx" });
+const group = ref({ read: true, write: true, exec: true, num: 7, sym: "rwx" });
+const other = ref({ read: true, write: true, exec: true, num: 7, sym: "rwx" });
 
 const changeOwnerCheck = () => {
-  const readNum = owner.value.read ? READ_NUM : DEFAULT_NUM;
-  const writeNum = owner.value.write ? WRITE_NUM : DEFAULT_NUM;
-  const execNum = owner.value.exec ? EXEC_NUM : DEFAULT_NUM;
+  let readNum = DEFAULT_NUM;
+  let readSym = DEFAULT_SYM;
+  if (owner.value.read) {
+    readNum = READ_NUM;
+    readSym = READ_SYM;
+  }
+
+  let writeNum = DEFAULT_NUM;
+  let writeSym = DEFAULT_SYM;
+  if (owner.value.write) {
+    writeNum = WRITE_NUM;
+    writeSym = WRITE_SYM;
+  }
+
+  let execNum = DEFAULT_NUM;
+  let execSym = DEFAULT_SYM;
+  if (owner.value.exec) {
+    execNum = EXEC_NUM;
+    execSym = EXEC_SYM;
+  }
   owner.value.num = readNum + writeNum + execNum;
+  owner.value.sym = readSym + writeSym + execSym;
 };
 
 const changeGroupCheck = () => {
-  const readNum = group.value.read ? READ_NUM : DEFAULT_NUM;
-  const writeNum = group.value.write ? WRITE_NUM : DEFAULT_NUM;
-  const execNum = group.value.exec ? EXEC_NUM : DEFAULT_NUM;
+  let readNum = DEFAULT_NUM;
+  let readSym = DEFAULT_SYM;
+  if (group.value.read) {
+    readNum = READ_NUM;
+    readSym = READ_SYM;
+  }
+
+  let writeNum = DEFAULT_NUM;
+  let writeSym = DEFAULT_SYM;
+  if (group.value.write) {
+    writeNum = WRITE_NUM;
+    writeSym = WRITE_SYM;
+  }
+
+  let execNum = DEFAULT_NUM;
+  let execSym = DEFAULT_SYM;
+  if (group.value.exec) {
+    execNum = EXEC_NUM;
+    execSym = EXEC_SYM;
+  }
   group.value.num = readNum + writeNum + execNum;
+  group.value.sym = readSym + writeSym + execSym;
 };
 
 const changeOtherCheck = () => {
-  const readNum = other.value.read ? READ_NUM : DEFAULT_NUM;
-  const writeNum = other.value.write ? WRITE_NUM : DEFAULT_NUM;
-  const execNum = other.value.exec ? EXEC_NUM : DEFAULT_NUM;
+  let readNum = DEFAULT_NUM;
+  let readSym = DEFAULT_SYM;
+  if (other.value.read) {
+    readNum = READ_NUM;
+    readSym = READ_SYM;
+  }
+
+  let writeNum = DEFAULT_NUM;
+  let writeSym = DEFAULT_SYM;
+  if (other.value.write) {
+    writeNum = WRITE_NUM;
+    writeSym = WRITE_SYM;
+  }
+
+  let execNum = DEFAULT_NUM;
+  let execSym = DEFAULT_SYM;
+  if (other.value.exec) {
+    execNum = EXEC_NUM;
+    execSym = EXEC_SYM;
+  }
   other.value.num = readNum + writeNum + execNum;
+  other.value.sym = readSym + writeSym + execSym;
 };
 
 const resultNum = computed(() => {
@@ -35,7 +96,7 @@ const resultNum = computed(() => {
 });
 
 const resultSym = computed(() => {
-  return "記号！";
+  return owner.value.sym + group.value.sym + other.value.sym;
 });
 </script>
 
@@ -97,10 +158,10 @@ const resultSym = computed(() => {
   </div>
   <div class="text-center mt-4">
     <span class="label-text inline-block w-16">数値</span>
-    <input type="text" v-model="resultNum" class="input input-bordered w-20 max-w-xs" />
+    <input type="text" v-model="resultNum" class="input input-bordered w-28 max-w-xs" />
   </div>
   <div class="text-center mt-4">
     <span class="label-text inline-block w-16">記号</span>
-    <input type="text" v-model="resultSym" class="input input-bordered w-20 max-w-xs" />
+    <input type="text" v-model="resultSym" class="input input-bordered w-28 max-w-xs" />
   </div>
 </template>
