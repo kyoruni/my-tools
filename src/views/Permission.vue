@@ -29,31 +29,31 @@ const other = ref({ read: true, write: true, exec: true });
           <input type="checkbox" v-model="owner.read" class="checkbox checkbox-error" />
         </td>
         <td class="w-20">
-          <input type="checkbox" v-model="owner.write" class="checkbox checkbox-warning" />
+          <input type="checkbox" v-model="owner.write" class="checkbox checkbox-error" />
         </td>
         <td class="w-20">
-          <input type="checkbox" v-model="owner.exec" class="checkbox checkbox-info" />
+          <input type="checkbox" v-model="owner.exec" class="checkbox checkbox-error" />
         </td>
       </tr>
       <tr class="text-center">
         <td class="w-16 label-text text-left">グループ</td>
         <td class="w-20">
-          <input type="checkbox" v-model="group.read" class="checkbox checkbox-error" />
+          <input type="checkbox" v-model="group.read" class="checkbox checkbox-warning" />
         </td>
         <td class="w-20">
           <input type="checkbox" v-model="group.write" class="checkbox checkbox-warning" />
         </td>
         <td class="w-20">
-          <input type="checkbox" v-model="group.exec" class="checkbox checkbox-info" />
+          <input type="checkbox" v-model="group.exec" class="checkbox checkbox-warning" />
         </td>
       </tr>
       <tr class="text-center">
         <td class="w-16 label-text text-left">その他</td>
         <td class="w-20">
-          <input type="checkbox" v-model="other.read" class="checkbox checkbox-error" />
+          <input type="checkbox" v-model="other.read" class="checkbox checkbox-info" />
         </td>
         <td class="w-20">
-          <input type="checkbox" v-model="other.write" class="checkbox checkbox-warning" />
+          <input type="checkbox" v-model="other.write" class="checkbox checkbox-info" />
         </td>
         <td class="w-20">
           <input type="checkbox" v-model="other.exec" class="checkbox checkbox-info" />
