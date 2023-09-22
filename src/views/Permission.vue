@@ -190,15 +190,19 @@ const copyButtonMouseLeave = (type: string) => {
   <div class="text-center mt-4">
     <span class="label-text inline-block w-16">数値</span>
     <input type="text" v-model="resultNum" class="input input-bordered w-32 max-w-xs" />
-    <button @click="copyButton(resultNum)" @mouseover="copyButtonMouseOver('num')" @mouseleave="copyButtonMouseLeave('num')">
-      <span class="i-tabler-clipboard-copy w-5 h-5 ml-2" :class="{ 'text-pink-200': isNumHover, 'text-blue-400': !isNumHover }"></span>
-    </button>
+    <div class="tooltip ml-2" data-tip="コピーする">
+      <button @click="copyButton(resultNum)" @mouseover="copyButtonMouseOver('num')" @mouseleave="copyButtonMouseLeave('num')">
+        <span class="i-tabler-clipboard-copy w-5 h-5" :class="{ 'text-pink-200': isNumHover, 'text-blue-400': !isNumHover }"></span>
+      </button>
+    </div>
   </div>
   <div class="text-center mt-4">
     <span class="label-text inline-block w-16">記号</span>
     <input type="text" v-model="resultSym" class="input input-bordered w-32 max-w-xs" />
-    <button @click="copyButton(resultSym)" @mouseover="copyButtonMouseOver('sym')" @mouseleave="copyButtonMouseLeave('sym')">
-      <span class="i-tabler-clipboard-copy w-5 h-5 ml-2" :class="{ 'text-pink-200': isSymHover, 'text-blue-400': !isSymHover }"></span>
-    </button>
+    <div class="tooltip ml-2" data-tip="コピーする">
+      <button @click="copyButton(resultSym)" @mouseover="copyButtonMouseOver('sym')" @mouseleave="copyButtonMouseLeave('sym')">
+        <span class="i-tabler-clipboard-copy w-5 h-5" :class="{ 'text-pink-200': isSymHover, 'text-blue-400': !isSymHover }"></span>
+      </button>
+    </div>
   </div>
 </template>
