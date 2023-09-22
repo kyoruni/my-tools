@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Tools | @kyoruni</title>
     <script>
-      (function(){
-        const redirect = sessionStorage.redirect;
-        delete sessionStorage.redirect;
-        if (redirect && redirect != location.href) {
-          history.replaceState(null, null, redirect);
-        }
-      })();
+      (function (l) {
+          if (location.search) {
+              var q = {};
+              location.search.slice(1).split('&').forEach(function (v) { // ?p=/fooの分解
+                  const a = v.split('=');
+                  q[a[0]] = a[1];
+              });
+              if (q.p !== undefined) {
+                  window.history.replaceState(null, null, location.pathname.slice(0, -1) + (q.p || '')); // https://hoge.com/fooへ遷移
+              }
+          }
+      }(window.location))
     </script>
   </head>
   <body>
