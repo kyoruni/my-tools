@@ -2,7 +2,5 @@
 </script>
 
 <template>
-  <main>
-    home
-  </main>
+  <RouterLink to="/permission">パーミッション</RouterLink>
 </template>
