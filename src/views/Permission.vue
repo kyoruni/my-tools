@@ -130,11 +130,6 @@ const copyButtonMouseLeave = (type: string) => {
 </script>
 
 <template>
-  <p>owner: {{ owner }}</p>
-  <p>group: {{ group }}</p>
-  <p>other: {{ other }}</p>
-  <p>isNumHover: {{ isNumHover }}</p>
-  <p>isSymHover: {{ isSymHover }}</p>
   <div class="permission flex justify-center">
     <table>
       <tr class="text-center">
