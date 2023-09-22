@@ -2,8 +2,10 @@
 import { ref, computed } from "vue";
 import useClipboard from 'vue-clipboard3';
 import PageTitle from '@/components/PageTitle.vue';
+import { useToast } from "vue-toast-notification";
 
 const { toClipboard } = useClipboard();
+const toast = useToast();
 
 const READ_NUM = 4;
 const READ_SYM = 'r';
@@ -108,7 +110,7 @@ const resultSym = computed(() => {
 
 const copyButton = (value: string) => {
   toClipboard(value);
-  alert('クリップボードにコピーしました');
+  toast.success('クリップボードにコピーしました！', { position: 'top', duration: 1000 });
 };
 
 const copyButtonMouseOver = (type: string) => {
