@@ -5,9 +5,9 @@ const WRITE_NUM = 2;
 const EXEC_NUM = 1;
 const DEFAULT_NUM = 0;
 
-const owner = ref({ read: true, write: true, exec: true, num: 7, sym: "-" });
-const group = ref({ read: true, write: true, exec: true, num: 7, sym: "-" });
-const other = ref({ read: true, write: true, exec: true, num: 7, sym: "-" });
+const owner = ref({ read: true, write: true, exec: true, num: 0, sym: "---" });
+const group = ref({ read: true, write: true, exec: true, num: 0, sym: "---" });
+const other = ref({ read: true, write: true, exec: true, num: 0, sym: "---" });
 
 const changeOwnerCheck = () => {
   const readNum = owner.value.read ? READ_NUM : DEFAULT_NUM;
