@@ -19,6 +19,8 @@ const DEFAULT_SYM = '-';
 const owner = ref({ read: true, write: true, exec: true, num: 7, sym: "rwx" });
 const group = ref({ read: true, write: true, exec: true, num: 7, sym: "rwx" });
 const other = ref({ read: true, write: true, exec: true, num: 7, sym: "rwx" });
+const isNumHover = ref(false);
+const isSymHover = ref(false);
 
 const changeOwnerCheck = () => {
   let readNum = DEFAULT_NUM;
@@ -107,19 +109,38 @@ const copyButton = (value: string) => {
   toClipboard(value);
   alert('クリップボードにコピーしました');
 };
+
+const copyButtonMouseOver = (type: string) => {
+  if (type === 'num') {
+    isNumHover.value = true;
+  } else {
+    // sym
+    isSymHover.value = true;
+  }
+};
+
+const copyButtonMouseLeave = (type: string) => {
+  if (type === 'num') {
+    isNumHover.value = false;
+  } else {
+    // sym
+    isSymHover.value = false;
+  }
+};
 </script>
 
 <template>
   <p>owner: {{ owner }}</p>
   <p>group: {{ group }}</p>
   <p>other: {{ other }}</p>
+  <p>isNumHover: {{ isNumHover }}</p>
+  <p>isSymHover: {{ isSymHover }}</p>
   <div class="permission flex justify-center">
     <table>
       <tr class="text-center">
         <td class="w-16"></td>
         <td class="w-20">
           <span class="label-text">読み込み</span>
-          <span className="i-tabler-brand-twitter-filled w-5 h-5"></span>
         </td>
         <td class="w-20">
           <span class="label-text">書き込み</span>
@@ -169,11 +190,15 @@ const copyButton = (value: string) => {
   <div class="text-center mt-4">
     <span class="label-text inline-block w-16">数値</span>
     <input type="text" v-model="resultNum" class="input input-bordered w-32 max-w-xs" />
-    <button @click="copyButton(resultNum)">コピー</button>
+    <button @click="copyButton(resultNum)" @mouseover="copyButtonMouseOver('num')" @mouseleave="copyButtonMouseLeave('num')">
+      <span class="i-tabler-clipboard-copy w-5 h-5 ml-2" :class="{ 'text-red-400': isNumHover, 'text-blue-400': !isNumHover }"></span>
+    </button>
   </div>
   <div class="text-center mt-4">
     <span class="label-text inline-block w-16">記号</span>
     <input type="text" v-model="resultSym" class="input input-bordered w-32 max-w-xs" />
-    <button @click="copyButton(resultSym)">コピー</button>
+    <button @click="copyButton(resultSym)" @mouseover="copyButtonMouseOver('sym')" @mouseleave="copyButtonMouseLeave('sym')">
+      <span class="i-tabler-clipboard-copy w-5 h-5 ml-2" :class="{ 'text-red-400': isSymHover, 'text-blue-400': !isSymHover }"></span>
+    </button>
   </div>
 </template>
