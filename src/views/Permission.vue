@@ -136,7 +136,7 @@ const clearButton = () => {
   group.value.read = group.value.write = group.value.exec = false;
   other.value.read = other.value.write = other.value.exec = false;
   owner.value.num = group.value.num = other.value.num = 0;
-  owner.value.sym = group.value.sym = other.value.sym = '-';
+  owner.value.sym = group.value.sym = other.value.sym = '---';
 };
 
 const allCheckButton = () => {
