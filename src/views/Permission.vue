@@ -130,57 +130,56 @@ const copyButtonMouseLeave = (type: string) => {
 </script>
 
 <template>
-  <div class="permission flex justify-center">
-    <table>
-      <tr class="text-center">
-        <td class="w-16"></td>
-        <td class="w-20">
-          <span class="label-text">読み込み</span>
-        </td>
-        <td class="w-20">
-          <span class="label-text">書き込み</span>
-        </td>
-        <td class="w-20">
-          <span class="label-text">実行</span>
-        </td>
-      </tr>
-      <tr class="text-center">
-        <td class="w-16 label-text text-left">所有者</td>
-        <td class="w-20">
-          <input type="checkbox" v-model="owner.read" class="checkbox checkbox-error" @change="changeOwnerCheck"/>
-        </td>
-        <td class="w-20">
-          <input type="checkbox" v-model="owner.write" class="checkbox checkbox-error" @change="changeOwnerCheck"/>
-        </td>
-        <td class="w-20">
-          <input type="checkbox" v-model="owner.exec" class="checkbox checkbox-error" @change="changeOwnerCheck"/>
-        </td>
-      </tr>
-      <tr class="text-center">
-        <td class="w-16 label-text text-left">グループ</td>
-        <td class="w-20">
-          <input type="checkbox" v-model="group.read" class="checkbox checkbox-warning" @change="changeGroupCheck" />
-        </td>
-        <td class="w-20">
-          <input type="checkbox" v-model="group.write" class="checkbox checkbox-warning" @change="changeGroupCheck" />
-        </td>
-        <td class="w-20">
-          <input type="checkbox" v-model="group.exec" class="checkbox checkbox-warning" @change="changeGroupCheck" />
-        </td>
-      </tr>
-      <tr class="text-center">
-        <td class="w-16 label-text text-left">その他</td>
-        <td class="w-20">
-          <input type="checkbox" v-model="other.read" class="checkbox checkbox-info" @change="changeOtherCheck" />
-        </td>
-        <td class="w-20">
-          <input type="checkbox" v-model="other.write" class="checkbox checkbox-info" @change="changeOtherCheck" />
-        </td>
-        <td class="w-20">
-          <input type="checkbox" v-model="other.exec" class="checkbox checkbox-info" @change="changeOtherCheck" />
-        </td>
-      </tr>
-    </table>
+  <div class="permission">
+    <div class="prose mx-auto text-center mb-4">
+      <h2>パーミッションの数値と記号表記を作るやつ</h2>
+    </div>
+    <div class="flex justify-center">
+      <table>
+        <tr class="text-center">
+          <td class="w-16"></td>
+          <td class="w-20"><span class="label-text">読み込み</span></td>
+          <td class="w-20"><span class="label-text">書き込み</span></td>
+          <td class="w-20"><span class="label-text">実行</span></td>
+        </tr>
+        <tr class="text-center">
+          <td class="w-16 label-text text-left">所有者</td>
+          <td class="w-20">
+            <input type="checkbox" v-model="owner.read" class="checkbox checkbox-error" @change="changeOwnerCheck"/>
+          </td>
+          <td class="w-20">
+            <input type="checkbox" v-model="owner.write" class="checkbox checkbox-error" @change="changeOwnerCheck"/>
+          </td>
+          <td class="w-20">
+            <input type="checkbox" v-model="owner.exec" class="checkbox checkbox-error" @change="changeOwnerCheck"/>
+          </td>
+        </tr>
+        <tr class="text-center">
+          <td class="w-16 label-text text-left">グループ</td>
+          <td class="w-20">
+            <input type="checkbox" v-model="group.read" class="checkbox checkbox-warning" @change="changeGroupCheck" />
+          </td>
+          <td class="w-20">
+            <input type="checkbox" v-model="group.write" class="checkbox checkbox-warning" @change="changeGroupCheck" />
+          </td>
+          <td class="w-20">
+            <input type="checkbox" v-model="group.exec" class="checkbox checkbox-warning" @change="changeGroupCheck" />
+          </td>
+        </tr>
+        <tr class="text-center">
+          <td class="w-16 label-text text-left">その他</td>
+          <td class="w-20">
+            <input type="checkbox" v-model="other.read" class="checkbox checkbox-info" @change="changeOtherCheck" />
+          </td>
+          <td class="w-20">
+            <input type="checkbox" v-model="other.write" class="checkbox checkbox-info" @change="changeOtherCheck" />
+          </td>
+          <td class="w-20">
+            <input type="checkbox" v-model="other.exec" class="checkbox checkbox-info" @change="changeOtherCheck" />
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
   <div class="text-center mt-4">
     <span class="label-text inline-block w-16">数値</span>
