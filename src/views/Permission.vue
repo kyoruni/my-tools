@@ -62,17 +62,3 @@ const other = ref({ read: true, write: true, exec: true });
     </table>
   </div>
 </template>
-
-<style scoped>
-#customCheckbox {
-  display: none;
-}
-
-/* 疑似要素を使用してチェックマークを表示 */
-.custom-checkbox::before {
-  content: "\2713";
-  display: inline-block;
-  font-size: 20px; /* フォントサイズを調整 */
-  /* その他のスタイルを追加 */
-}
-</style>
